@@ -54,7 +54,10 @@ fabric.properties
 
 *.iml
 *.ipr
+
+
 /tmp
-/documentation
-modules
-documentation
+/modules
+/lib
+/test-result
+/logs
