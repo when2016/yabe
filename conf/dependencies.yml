@@ -3,3 +3,9 @@
 require:
     - play
     - play -> docviewer
+    - play -> crud
+    - secure
+    - com.google.guava -> guava r07:
+        exclude:
+          - com.google.code.findbugs -> *
+    - commons-lang 3.0
