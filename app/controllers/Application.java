@@ -2,6 +2,7 @@ package controllers;
 
 import play.*;
 import play.cache.Cache;
+import play.data.validation.Required;
 import play.libs.Images;
 import play.mvc.*;
 
@@ -21,12 +22,18 @@ public class Application extends Controller {
   }
 
 
-  @Before
-  static void addDefaults() {
-    renderArgs.put("blogTitle", Play.configuration.getProperty("blog.title"));
-    renderArgs.put("blogBaseline", Play.configuration.getProperty("blog.baseline"));
+  public static void sayHello(@Required String myName) {
+    if(validation.hasErrors()) {
+      flash.error("please enter your name");
+    }
+    render(myName);
   }
 
+  //创建新的任务
+  public static void createTask(String title) {
+    Task task = new Task(title).save();
+    renderJSON(task);
+  }
 
   public static void show(Long id) {
     Post post = Post.findById(id);

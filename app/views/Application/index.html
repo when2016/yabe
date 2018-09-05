@@ -2,5 +2,44 @@
 #{set title:'Home' /}
 
 
-<h1>A blog will be here</h1>
+#{if flash.error}
+<p style="color:#c00">
+${flash.error}
+</p>
+#{/if}
 
+
+
+<form action="@{Application.sayHello()}" method="get">
+  <input type="text" name="myName"/>
+  <input type="submit" value="Say Hello!"/>
+</form>
+
+
+
+#{ifnot tasks}
+  <p>No tasks</p>
+#{/ifnot}}
+
+
+<ul>
+  #{list items:tasks,as:'task'}
+    <li>
+      <input type="checkbox" id="${task.id}" ${task.done ? 'checked' : ''}>
+      ${task.title}
+    </li>
+  #{/list}
+</ul>
+
+
+
+<script type="text/javascript" charset="utf-8">
+  //Create a task
+  $("#createTask").click(function(){
+    $.post("@{createTask()}", {title: prompt("Task title ?")}, function(task){
+      $("ul").prepend(
+          '<li><input type="checkbox" id="'+task.id+'"/>'+task.title+'</li>'
+      );
+    },"json");
+  });
+</script>

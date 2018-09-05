@@ -9,7 +9,7 @@ import play.jobs.On;
  * @date 9/2/18 7:52 PM
  */
 //@OnApplicationStart
-@On("5/5 * * * * ?")
+//@On("5/5 * * * * ?")
 public class Bootstrap extends Job {
 
   public void doJob() {

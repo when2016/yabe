@@ -9,38 +9,14 @@
         href="@{'/public/images/favicon.png'}" />
 </head>
 <body>
+<script src="http://bucketadmin.themebucket.net/js/jquery-1.10.2.min.js"></script>
+<script src="http://bucketadmin.themebucket.net/js/jquery-migrate.js"></script>
 
-<div id="header">
-  <div id="logo">
-    yabe.
-  </div>
-  <ul id="tools">
-    <li>
-      <a href="#">Log in to write something</a>
-    </li>
-  </ul>
-  <div id="title">
-    <span class="about">About this blog</span>
-    <h1><a href="#">${blogTitle}</a></h1>
-    <h2>${blogBaseline}</h2>
-  </div>
-</div>
 
 <div id="main">
 #{doLayout /}
 </div>
 
-<div id="title">
-  <span class="about">About this blog</span>
-  <h1><a href="@{Application.index()}">${blogTitle}</a></h1>
-  <h2>${blogBaseline}</h2>
-</div>
-
-<p id="footer">
-  Yabe is a (not that) powerful blog engine built with the
-  <a href="https://www.playframework.com">Play framework</a>
-  as a tutorial application.
-</p>
 
 
 
